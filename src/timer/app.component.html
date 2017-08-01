@@ -1,0 +1,11 @@
+<nav>
+    <button (click)="changeTab('time')" [className]="!timeHidden ? 'activ' : ''">TIME</button>
+    <button (click)="changeTab('timer')" [className]="!timerHidden ? 'activ' : ''">TIMER</button>
+    <button (click)="changeTab('stopWatch')" [className]="!stopWatchHidden ? 'activ' : ''">STOPWATCH</button>
+</nav>
+
+<div class="components">
+    <app-time [className]="timeHidden ? 'hide' : 'show'"></app-time>
+    <app-timer [className]="timerHidden ? 'hide' : 'show'"></app-timer>
+    <app-stopwatch [className]="stopWatchHidden ? 'hide' : 'show'"></app-stopwatch>
+</div>

@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+nav a {
+    padding: 5px;
+    color: black;
+}
+
+.message {
+    flex: 100%;
+    text-align: center;
+}

@@ -1,0 +1,39 @@
+<form name="info" #info="ngForm">
+  <div class="inputWrap">
+    <label>Your name:</label>
+    <input type="text" name="name" placeholder="name" [(ngModel)]="user.name" #name="ngModel" value="{{user.name}}" minlength="2"
+      maxlength="24" required>
+    <div *ngIf="name.errors && name.errors.required && name.dirty">name is required</div>
+    <div *ngIf="name.errors && name.errors.minlength && name.dirty">min length is 2</div>
+  </div>
+  <div class="inputWrap">
+    <label>last name:</label>
+    <input type="text" name="lastName" placeholder="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" value="{{user.lastName}}"
+      minlength="2" maxlength="24" required>
+    <div *ngIf="lastName.errors && lastName.errors.required && lastName.dirty">last name is required</div>
+    <div *ngIf="lastName.errors && lastName.errors.minlength && lastName.dirty">min length is 2</div>
+  </div>
+  <div class="inputWrap">
+    <label>email:</label>
+    <input type="email" name="email" placeholder="email" [(ngModel)]="user.email" #email="ngModel" value="{{user.email}}" pattern="([a-zA-Z0-9_.]{1,})((@[a-zA-Z]{2,})[\\\.]([a-zA-Z]{2}|[a-zA-Z]{3}))"
+      required>
+    <div *ngIf="email.errors && email.errors.required && email.dirty">email is required</div>
+    <div *ngIf="email.errors && email.errors.pattern">wrong format</div>
+  </div>
+  <div class="inputWrap">
+    <label>year of birthday:</label>
+    <input type="number" name="year" placeholder="birthday year" [(ngModel)]="user.year" #year="ngModel" pattern="(19\d\d|2000)"
+      value="{{user.year}}" required max="2000" min="1900">
+    <div *ngIf="year.errors && year.errors.required && year.dirty">year is required</div>
+    <div *ngIf="year.errors && year.errors.pattern">year should be at least 1900 and maximum 2000</div>
+  </div>
+  <div class="inputWrap">
+    <label>password:</label>
+    <input type="password" name="password" placeholder="password" [(ngModel)]="user.password" #password="ngModel" value="{{user.password}}"
+      required minlength="3">
+    <div *ngIf="password.errors && password.errors.required && password.dirty">password is required</div>
+    <div *ngIf="password.errors && password.errors.minlength && password.dirty">min length is 3 </div>
+  </div>
+</form>
+<div>{{message}}</div>
+<button [disabled]="!info.form.valid" (click)="save()">save</button>

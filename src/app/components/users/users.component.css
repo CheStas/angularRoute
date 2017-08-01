@@ -1,0 +1,28 @@
+li {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 5px;
+}
+
+.cl {
+    width: 140px;
+    text-align: center;
+}
+
+button {
+    width: 140px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+input {
+    padding: 5px;
+    margin-left: 46px;
+}

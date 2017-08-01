@@ -1,0 +1,8 @@
+<input type="email" placeholder="email" [(ngModel)]="email" required>
+<input type="password" placeholder="password" [(ngModel)]="password" required>
+<button (click)="login()">login</button>
+<nav>
+    <a routerLink="/register">new user?</a>
+    <a routerLink="/forgot-pass">forgot pass?</a>
+</nav>
+<p class="message">{{message}}</p>

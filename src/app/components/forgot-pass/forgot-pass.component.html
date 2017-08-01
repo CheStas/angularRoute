@@ -1,0 +1,7 @@
+<div *ngIf="!hide">
+<input type="email" placeholder="email" [(ngModel)]="email">
+<div class="wrap-anwser">{{expression}} = <input class="answer" type="number" [(ngModel)]="answer"> </div> 
+<div>{{message}}</div>
+<button (click)="checkAnsewer()">restore password</button>
+</div>
+<router-outlet></router-outlet>

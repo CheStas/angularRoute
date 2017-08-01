@@ -1,0 +1,39 @@
+<input type="text" [(ngModel)]='query' placeholder="find name or email">
+<ul>
+  <li>
+    <button 
+      (click)="changeOrderBy('name')">
+      name 
+      <span *ngIf="sortProperty !== 'name' || (sortProperty === 'name' && orderBy === '')">&#8645;</span>
+      <span *ngIf="sortProperty === 'name' && orderBy === 'asc'">&#9650;</span>
+      <span *ngIf="sortProperty === 'name' && orderBy === 'desc'">&#9660;</span>
+    </button>
+    <button 
+      (click)="changeOrderBy('lastName')">
+      last Name 
+      <span *ngIf="sortProperty !== 'lastName' || (sortProperty === 'lastName' && orderBy === '')">&#8645;</span>
+      <span *ngIf="sortProperty === 'lastName' && orderBy === 'asc'">&#9650;</span>
+      <span *ngIf="sortProperty === 'lastName' && orderBy === 'desc'">&#9660;</span>
+    </button>
+    <button 
+      (click)="changeOrderBy('email')">
+      email 
+      <span *ngIf="sortProperty !== 'email' || (sortProperty === 'email' && orderBy === '')">&#8645;</span>
+      <span *ngIf="sortProperty === 'email' && orderBy === 'asc'">&#9650;</span>
+      <span *ngIf="sortProperty === 'email' && orderBy === 'desc'">&#9660;</span>
+    </button>
+    <button 
+      (click)="changeOrderBy('year')">
+      year <span *ngIf="sortProperty !== 'year' || (sortProperty === 'year' && orderBy === '')">&#8645;</span>
+      <span *ngIf="sortProperty === 'year' && orderBy === 'asc'">&#9650;</span>
+      <span *ngIf="sortProperty === 'year' && orderBy === 'desc'">&#9660;</span>
+    </button>
+  </li>
+
+  <li *ngFor="let user of users | search: query |sortBy: sortProperty:orderBy">
+    <span class="cl name">{{user.name}}</span>
+    <span class="cl lastName">{{user.lastName}}</span>
+    <span class="cl email">{{user.email}}</span>
+    <span class="cl year">{{user.year}}</span>
+  </li>
+</ul>

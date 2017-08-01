@@ -1,0 +1,32 @@
+<form name="register" #register="ngForm">
+  <div class="inputWrap">
+    <input type="text" name="name" placeholder="name" [(ngModel)]="user.name" #name="ngModel" minlength="2" maxlength="24" required>
+    <div class="error" *ngIf="name.errors && name.errors.required && name.dirty">name is required</div>
+    <div class="error" *ngIf="name.errors && name.errors.minlength && name.dirty">min length is 2</div>
+  </div>
+  <div class="inputWrap">
+    <input type="text" name="lastName" placeholder="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" minlength="2" maxlength="24"
+      required>
+    <div class="error" *ngIf="lastName.errors && lastName.errors.required && lastName.dirty">last name is required</div>
+    <div class="error" *ngIf="lastName.errors && lastName.errors.minlength && lastName.dirty">min length is 2</div>
+  </div>
+  <div class="inputWrap">
+    <input type="email" name="email" placeholder="email" [(ngModel)]="user.email" #email="ngModel" pattern="([a-zA-Z0-9_.]{1,})((@[a-zA-Z]{2,})[\\\.]([a-zA-Z]{2}|[a-zA-Z]{3}))"
+      required>
+    <div class="error" *ngIf="email.errors && email.errors.required && email.dirty">email is required</div>
+    <div class="error" *ngIf="email.errors && email.errors.pattern">wrong format</div>
+  </div>
+  <div class="inputWrap">
+    <input type="number" name="year" placeholder="birthday year" [(ngModel)]="user.year" #year="ngModel" pattern="(19\d\d|2000)"
+      required max="2000" min="1900">
+    <div class="error" *ngIf="year.errors && year.errors.required && year.dirty">year is required</div>
+    <div class="error" *ngIf="year.errors && year.errors.pattern">year should be at least 1900 and maximum 2000</div>
+  </div>
+  <div class="inputWrap">
+    <input type="password" name="password" placeholder="password" [(ngModel)]="user.password" #password="ngModel" required minlength="3">
+    <div class="error" *ngIf="password.errors && password.errors.required && password.dirty">password is required</div>
+    <div class="error" *ngIf="password.errors && password.errors.minlength && password.dirty">min length is 3 </div>
+  </div>
+</form>
+<div>{{helloMessage}}</div>
+<button [disabled]="!register.form.valid" (click)="joinUser()">join</button>

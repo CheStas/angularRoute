@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.wrap-anwser {
+    width: 150px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px; 
+}
+
+.answer {
+    width: 80px;
+}
+
+button {
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
